@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" type="text/css" href="styles4.css">
+</head>
+<body>
+
+<div class="gallery">
+    <div class="row">
+        <div class="image" id="image1">
+            <img src="1 (1).jpg" alt="Image 1">
+            <div class="overlay">
+                <div class="text">Text 1</div>
+            </div>
+        </div>
+        <div class="image" id="image2">
+            <img src="1 (10).jpg" alt="Image 2">
+            <div class="overlay">
+                <div class="text">Text 2</div>
+            </div>
+        </div>
+        <!-- Repeat for other images -->
+    </div>
+    <!-- Repeat for other rows -->
+</div>
+
+<div id="popup" class="popup">
+    <span class="close">&times;</span>
+    <div class="popup-content">
+        <img src="" alt="Expanded Image" id="expanded-image">
+        <div id="expanded-text">Expanded Text</div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="script4.js"></script>
+
+</body>
+</html>
