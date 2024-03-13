@@ -8,8 +8,42 @@
     border: 1px solid #ccc;
     padding: 20px;
     transition: flex 0.5s ease;
+    cursor: pointer;
+    display: flex; /* Use flexbox for column layout */
+    flex-direction: column; /* Arrange items in a column */
+}
+.expanded {
+    flex: 3; /* Expanded column takes more space */
 }
 
-.expanded {
-    flex: 3;
+.column-title {
+    width: 100%; /* Span the entire width of the column */
+    text-align: center; /* Center the title */
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 10px; /* Add space below the title */
+}
+
+.content {
+    display: flex; /* Use flexbox for content layout */
+}
+
+.images {
+    flex: 1; /* Make the image span the whole compressed column */
+    display: flex; /* Use flexbox for image layout */
+    flex-direction: column; /* Arrange images in a column */
+    margin-right: 10px; /* Add spacing between image and text */
+}
+
+.images img {
+    width: 100%; /* Make the image span the whole width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.text {
+    flex: 1; /* Fill remaining space */
+    display: none; /* Hide the text by default */
+}
+
+.expanded .text {
+    display: block; /* Show the text when the column is expanded */
 }
