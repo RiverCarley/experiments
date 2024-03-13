@@ -1,6 +1,9 @@
 $(document).ready(function(){
+    // Hide all slides initially
+    $('.slide').hide();
+
     // Show initial slide
-    $('.slideshow').show();
+    $('.slideshow .slide:first-child').show(); // Show only the first slide
     $('.gallery').hide();
 
     // Change slide on click

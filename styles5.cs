@@ -7,9 +7,12 @@
 }
 
 .slide img {
-    width: 100%;
-    height: auto;
+    width: 100px; /* Set the width to your desired size */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure proper spacing between images */
+    margin-bottom: 10px; /* Add some space between images */
 }
+
 
 .text {
     position: absolute;
