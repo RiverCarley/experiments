@@ -15,12 +15,21 @@
 .expanded {
     flex: 3; /* Expanded column takes more space */
 }
+h1{
+font-size: 5vw;
+text-align: center;
+}
+h2{
+    font-size: 4vw;
+    text-align: center;
+}
 
 .column-title {
     width: 100%; /* Span the entire width of the column */
     text-align: center; /* Center the title */
     font-weight: bold; /* Make the title bold */
     margin-bottom: 10px; /* Add space below the title */
+    font-size: 3VW;
 }
 
 .content {
@@ -42,6 +51,7 @@
 .text {
     flex: 1; /* Fill remaining space */
     display: none; /* Hide the text by default */
+    font-size: 1VW;
 }
 
 .expanded .text {
