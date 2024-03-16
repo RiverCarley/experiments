@@ -120,16 +120,15 @@ h1, h2 {
     height: 0;
     visibility: hidden;
 }
+.column:not(.compressed) .images img {
+    height: auto;
+    visibility: visible;
+}
 
 
 /* Hide images by default */
 
 /* Show the first image when the column is in the default state */
-.column:not(.compressed) .images img:first-child {
-
-    height: auto;
-    visibility: visible;
-}
 .close {
     position: absolute;
     top: 10px;
