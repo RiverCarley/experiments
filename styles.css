@@ -84,6 +84,16 @@ h1, h2 {
 .column .images img {
     top: 135px; /* Adjust this value as needed */
 }
+/* Set the top value of images in the second column to 0 when expanded */
+.column.expanded:nth-child(2) .images img {
+    top: 0;
+}
+
+/* Set the top value of images in other columns to 0 when expanded */
+.column.expanded .images img {
+    top: 0;
+}
+
 .text {
     flex: 1; /* Fill remaining space */
     display: none; /* Hide the text by default */
