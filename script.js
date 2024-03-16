@@ -12,14 +12,12 @@ $(document).ready(function(){
             // Remove expanded class from the clicked column
             clickedColumn.removeClass("expanded");
             // Restore all columns to their initial state
-            $(".column").removeClass("expanded");
-            $(".column").addClass("compressed");
+            $(".column").removeClass("expanded").addClass("compressed");
             $(".column-title").removeClass("vertical");
             $(".images").css("height", 0);
         } else {
             // Toggle the expanded/compressed class on the clicked column
-            clickedColumn.toggleClass("expanded");
-            clickedColumn.removeClass("compressed");
+            clickedColumn.toggleClass("expanded").removeClass("compressed");
             // Collapse all columns except the clicked one
             $(".column").not(clickedColumn).removeClass("expanded").addClass("compressed");
             // Toggle the vertical class on the column title based on the column's state
@@ -28,12 +26,14 @@ $(document).ready(function(){
                 $(this).find(".column-title").toggleClass("vertical", isCompressed);
                 // Toggle the hidden class on the text based on the column's state
                 $(this).find(".text").toggleClass("hidden", isCompressed);
-                // Set the height of images to 0 when the column is compressed
+                // Set the height of images to 0 and hide them when the column is compressed
                 if (isCompressed) {
                     $(this).find(".images").css("height", 0);
+                    $(this).find(".images img").hide();
                 } else {
-                    // Set the height of images to auto when the column is expanded
+                    // Set the height of images to auto and show them when the column is expanded
                     $(this).find(".images").css("height", "auto");
+                    $(this).find(".images img:first-child").show(); // Show the first image
                 }
             });
         }
