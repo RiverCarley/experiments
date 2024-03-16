@@ -115,17 +115,18 @@ h1, h2 {
     display: block; /* Show the text when the column is expanded */
 }
 /* Set the height of images to 0 and hide them when the column is compressed */
+/* Set the height of images to 0 and hide them only when the column is compressed */
 .column.compressed .images img {
-
-
+    height: 0;
+    visibility: hidden;
 }
 
 
 /* Hide images by default */
 
 /* Show the first image when the column is in the default state */
-.column:not(.expanded):not(.compressed) .images img:first-child {
-    display: block;
+.column:not(.compressed) .images img:first-child {
+
     height: auto;
     visibility: visible;
 }
