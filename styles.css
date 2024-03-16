@@ -56,6 +56,10 @@ h1, h2 {
     transform: rotate(0deg); /* Rotate the title vertically */
 
 }
+/* Change the font size of the title to 2vw when compressed */
+.column.compressed .column-title {
+    font-size: 2vw;
+}
 
 .content {
     display: flex; /* Use flexbox for content layout */
@@ -75,6 +79,7 @@ h1, h2 {
     position: absolute;
     top: 140px; /* Adjust this value according to the height of your title */
 }
+
 /* Adjust the position of images in the second column */
 .column:nth-child(2) .images img {
     top:1px; /* Adjust this value as needed */
@@ -84,6 +89,7 @@ h1, h2 {
 .column .images img {
     top: 135px; /* Adjust this value as needed */
 }
+
 /* Set the top value of images in the second column to 0 when expanded */
 .column.expanded:nth-child(2) .images img {
     top: 0;
@@ -92,6 +98,13 @@ h1, h2 {
 /* Set the top value of images in other columns to 0 when expanded */
 .column.expanded .images img {
     top: 0;
+}
+
+/* Set the height of images to 0 when the column is compressed */
+/* Set the height of images to 0 when the column is compressed */
+.column.compressed .images img {
+    height: 0;
+    visibility: hidden;
 }
 
 .text {
@@ -107,7 +120,6 @@ h1, h2 {
 .expanded .text {
     display: block; /* Show the text when the column is expanded */
 }
-
 
 .close {
     position: absolute;

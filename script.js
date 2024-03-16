@@ -15,7 +15,7 @@ $(document).ready(function(){
             $(".column").removeClass("expanded compressed");
             $(".column-title").removeClass("vertical");
             // Hide all images except the first one in each column
-            $(".column .images img").not(":first-child").hide();
+            $(".column.compressed .images").css("height", 0);
         } else {
             // Toggle the expanded/compressed class on the clicked column
             clickedColumn.toggleClass("expanded").removeClass("compressed");
@@ -29,10 +29,10 @@ $(document).ready(function(){
                 $(this).find(".text").toggleClass("hidden", isCompressed);
                 // Hide images when column is compressed
                 if (isCompressed) {
-                    $(this).find(".images img").hide();
+                    $(this).find(".images").css("height", 0);
                 } else {
-                    // Show only the first image when the column is expanded
-                    $(this).find(".images img").hide().first().show();
+                    // Show the images when the column is expanded
+                    $(this).find(".images").css("height", "auto");
                 }
             });
         }
@@ -61,8 +61,8 @@ $(document).ready(function(){
         });
     }
 
-    // Hide all images in each column except for the first one, and mark it as active
-    $(".column .images img").hide().first().addClass("active").show();
+    // Hide all images initially
+    $(".images img").hide();
 
     // Call the cycleImages function every 1 second
     setInterval(cycleImages, 1000);
