@@ -1,5 +1,6 @@
 $(document).ready(function(){
     console.log("Document ready"); // Debug log
+    
     // Add horizontal class to column titles initially
     $(".column-title").addClass("horizontal");
 
@@ -13,7 +14,8 @@ $(document).ready(function(){
             // Restore all columns to their initial state
             $(".column").removeClass("expanded compressed");
             $(".column-title").removeClass("vertical");
-            $(".text").removeClass("hidden");
+            // Show all images
+            $(".images img").show();
         } else {
             // Toggle the expanded/compressed class on the clicked column
             clickedColumn.toggleClass("expanded").removeClass("compressed");
@@ -23,34 +25,17 @@ $(document).ready(function(){
             $(".column").each(function() {
                 var isCompressed = $(this).hasClass("compressed");
                 $(this).find(".column-title").toggleClass("vertical", isCompressed);
-                var textHidden = $(this).find(".text").hasClass("hidden");
+                // Toggle the hidden class on the text based on the column's state
                 $(this).find(".text").toggleClass("hidden", isCompressed);
             });
+            // Hide images when column is compressed
+            $(".column.compressed .images img").hide();
         }
     }
 
     // Click event handler for columns
     $(".column").click(function(){
         handleColumnClick($(this));
-    });
-
-    // Click event handler for images to show popup
-    $(".images img").click(function(){
-        var imageUrl = $(this).attr("src");
-        $("#expanded-image").attr("src", imageUrl);
-        $("#popup").show();
-    });
-
-    // Click event handler for close button inside the popup
-    $(".close").click(function(){
-        $("#popup").hide();
-    });
-
-    // Event listener to close popup when clicking outside of it
-    $(document).click(function(event) {
-        if (!$(event.target).closest("#popup").length && !$(event.target).is("#popup")) {
-            $("#popup").hide();
-        }
     });
 
     // Ensure that no column is initially expanded or compressed
