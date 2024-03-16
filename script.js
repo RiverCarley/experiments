@@ -11,9 +11,6 @@ $(document).ready(function(){
         if (isExpanded) {
             // Remove expanded class from the clicked column
             clickedColumn.removeClass("expanded");
-            // Restore all columns to their initial state
-            $(".column").removeClass("expanded compressed");
-            $(".column-title").removeClass("vertical");
             // Hide all images except the first one in each column
             $(".column.compressed .images").css("height", 0);
         } else {
@@ -42,10 +39,6 @@ $(document).ready(function(){
     $(".column").click(function(){
         handleColumnClick($(this));
     });
-
-    // Ensure that no column is initially expanded or compressed
-    $(".column").removeClass("expanded compressed");
-    $(".column-title").removeClass("vertical");
 
     // Function to cycle images
     function cycleImages() {

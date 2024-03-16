@@ -1,3 +1,4 @@
+/* Your CSS styles here */
 html, body {
     height: 90%;
     margin: 0;
@@ -19,12 +20,10 @@ html, body {
     display: flex; /* Use flexbox for column layout */
     flex-direction: column; /* Arrange items in a column */
 }
-.column:hover {
-    flex: 30; /* Expand the column on hover */
-}
+
 
 .expanded {
-    flex: 1; /* Expanded column takes more space */
+    flex: 30; /* Expanded column takes more space */
 }
 
 .compressed {
@@ -57,10 +56,6 @@ h1, h2 {
 .column-title.horizontal {
     transform: rotate(0deg); /* Rotate the title vertically */
 
-}
-/* Change the font size of the title to 2vw when compressed */
-.column.compressed .column-title {
-    font-size: 2vw;
 }
 
 .content {
@@ -131,4 +126,3 @@ h1, h2 {
     cursor: pointer;
     font-size: 20px;
 }
-
