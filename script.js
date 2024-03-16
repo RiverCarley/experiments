@@ -1,20 +1,59 @@
 $(document).ready(function(){
-    $(".column").click(function(){
-        $(this).toggleClass("expanded");
-        $(".column").not(this).removeClass("expanded");
+    console.log("Document ready"); // Debug log
+    // Add horizontal class to column titles initially
+    $(".column-title").addClass("horizontal");
 
-        if ($(this).hasClass("expanded")) {
-            $(this).find(".images img").click(function(){
-                var imageUrl = $(this).attr("src");
-                $("#expanded-image").attr("src", imageUrl);
-                $("#popup").show();
-            });
+    // Function to handle column click
+    function handleColumnClick(clickedColumn) {
+        // Check if the clicked column is already expanded
+        var isExpanded = clickedColumn.hasClass("expanded");
+        if (isExpanded) {
+            // Remove expanded class from the clicked column
+            clickedColumn.removeClass("expanded");
+            // Restore all columns to their initial state
+            $(".column").removeClass("expanded compressed");
+            $(".column-title").removeClass("vertical");
+            $(".text").removeClass("hidden");
         } else {
-            $(".images img").off("click"); // Remove click event handler when column is not expanded
+            // Toggle the expanded/compressed class on the clicked column
+            clickedColumn.toggleClass("expanded").removeClass("compressed");
+            // Collapse all columns except the clicked one
+            $(".column").not(clickedColumn).removeClass("expanded").addClass("compressed");
+            // Toggle the vertical class on the column title based on the column's state
+            $(".column").each(function() {
+                var isCompressed = $(this).hasClass("compressed");
+                $(this).find(".column-title").toggleClass("vertical", isCompressed);
+                var textHidden = $(this).find(".text").hasClass("hidden");
+                $(this).find(".text").toggleClass("hidden", isCompressed);
+            });
         }
+    }
+
+    // Click event handler for columns
+    $(".column").click(function(){
+        handleColumnClick($(this));
     });
 
+    // Click event handler for images to show popup
+    $(".images img").click(function(){
+        var imageUrl = $(this).attr("src");
+        $("#expanded-image").attr("src", imageUrl);
+        $("#popup").show();
+    });
+
+    // Click event handler for close button inside the popup
     $(".close").click(function(){
         $("#popup").hide();
     });
+
+    // Event listener to close popup when clicking outside of it
+    $(document).click(function(event) {
+        if (!$(event.target).closest("#popup").length && !$(event.target).is("#popup")) {
+            $("#popup").hide();
+        }
+    });
+
+    // Ensure that no column is initially expanded or compressed
+    $(".column").removeClass("expanded compressed");
+    $(".column-title").removeClass("vertical");
 });

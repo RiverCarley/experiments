@@ -12,24 +12,41 @@
     display: flex; /* Use flexbox for column layout */
     flex-direction: column; /* Arrange items in a column */
 }
+
 .expanded {
-    flex: 3; /* Expanded column takes more space */
+    flex: 30; /* Expanded column takes more space */
 }
-h1{
-font-size: 5vw;
-text-align: center;
+
+.compressed {
+    flex: 0.01; /* Compressed column takes less space */
 }
-h2{
-    font-size: 4vw;
+
+h1, h2 {
+    font-size: 5vw;
     text-align: center;
 }
 
 .column-title {
-    width: 100%; /* Span the entire width of the column */
-    text-align: center; /* Center the title */
-    font-weight: bold; /* Make the title bold */
-    margin-bottom: 10px; /* Add space below the title */
-    font-size: 3VW;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vw;
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 10px; /* Add some bottom margin */
+}
+
+.column-title.vertical {
+    transform: rotate(-90deg); /* Rotate the title vertically */
+    writing-mode: vertical-lr; /* Rotate the text vertically (for modern browsers) */
+    text-orientation: sideways; /* Rotate the text vertically (for older browsers) */
+    
+}
+.column-title.horizontal {
+    transform: rotate(0deg); /* Rotate the title vertically */
+
 }
 
 .content {
@@ -51,12 +68,17 @@ h2{
 .text {
     flex: 1; /* Fill remaining space */
     display: none; /* Hide the text by default */
-    font-size: 1VW;
+    font-size: 1vw;
+}
+
+.compressed .text {
+    display: block; /* Show the text when the column is compressed */
 }
 
 .expanded .text {
     display: block; /* Show the text when the column is expanded */
 }
+
 .popup {
     display: none;
     position: fixed;
@@ -80,4 +102,7 @@ h2{
     color: white;
     cursor: pointer;
     font-size: 20px;
+}
+.hidden {
+    display: none;
 }
