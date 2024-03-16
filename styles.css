@@ -19,14 +19,16 @@ html, body {
     display: flex; /* Use flexbox for column layout */
     flex-direction: column; /* Arrange items in a column */
 }
-
+.column:hover {
+    flex: 30; /* Expand the column on hover */
+}
 
 .expanded {
     flex: 1; /* Expanded column takes more space */
 }
 
 .compressed {
-    flex: 0.05; /* Compressed column takes less space */
+    flex: 0.01; /* Compressed column takes less space */
 }
 
 h1, h2 {
