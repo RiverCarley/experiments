@@ -28,16 +28,23 @@ $(document).ready(function(){
             });
         }
 // Toggle the visibility of images based on the column's state
+// Toggle the visibility and height of images based on the column's state
 $(".column").each(function() {
     var isCompressed = $(this).hasClass("compressed");
-    if (isCompressed) {
-        $(this).find(".images img").hide();
-        console.log("Images are not visible when the column is compressed."); // Debug message
+    var isExpanded = $(this).hasClass("expanded");
+    
+    // Check if the column is expanded or in default state
+    if (isExpanded || (!isCompressed && !isExpanded)) {
+        // Show the images in the expanded column or default state
+        $(this).find(".images img").show().css("height", "auto");
     } else {
-        $(this).find(".images img").show();
-   
+        // Hide the images in compressed columns
+        $(this).find(".images img").hide().css("height", 0);
     }
-});    }
+});
+
+
+ }
 
     // Click event handler for columns
     $(".column").on("click touchstart", function(){
