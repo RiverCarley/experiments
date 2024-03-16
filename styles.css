@@ -54,6 +54,10 @@ h1, h2 {
 
 .column-title.horizontal {
     transform: rotate(0deg); /* Rotate the title vertically */
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 1bef131 (fixed compressed glitches)
 }
 
 .content {
@@ -74,7 +78,6 @@ h1, h2 {
     position: absolute;
     top: 140px; /* Adjust this value according to the height of your title */
 }
-
 /* Adjust the position of images in the second column */
 .column:nth-child(2) .images img {
     top: 1px; /* Adjust this value as needed */
@@ -84,7 +87,6 @@ h1, h2 {
 .column .images img {
     top: 135px; /* Adjust this value as needed */
 }
-
 /* Set the top value of images in the second column to 0 when expanded */
 .column.expanded:nth-child(2) .images img {
     top: 0;
@@ -95,12 +97,15 @@ h1, h2 {
     top: 0;
 }
 
+<<<<<<< HEAD
 /* Show images in default state */
 .column .images img {
     height: auto;
     visibility: visible;
 }
 
+=======
+>>>>>>> parent of 1bef131 (fixed compressed glitches)
 .text {
     flex: 1; /* Fill remaining space */
     display: none; /* Hide the text by default */
@@ -118,10 +123,13 @@ h1, h2 {
 /* Set the height of images to 0 and hide them only when the column is compressed */
 
 
+<<<<<<< HEAD
 
 /* Hide images by default */
 
 /* Show the first image when the column is in the default state */
+=======
+>>>>>>> parent of 1bef131 (fixed compressed glitches)
 .close {
     position: absolute;
     top: 10px;

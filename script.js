@@ -14,6 +14,11 @@ $(document).ready(function(){
             // Restore all columns to their initial state
             $(".column").removeClass("expanded").addClass("compressed");
             $(".column-title").removeClass("vertical");
+<<<<<<< HEAD
+=======
+            // Hide all images except the first one in each column
+            $(".column .images img").not(":first-child").hide();
+>>>>>>> parent of 1bef131 (fixed compressed glitches)
         } else {
             // Toggle the expanded/compressed class on the clicked column
             clickedColumn.toggleClass("expanded").removeClass("compressed");
@@ -25,6 +30,16 @@ $(document).ready(function(){
                 $(this).find(".column-title").toggleClass("vertical", isCompressed);
                 // Toggle the hidden class on the text based on the column's state
                 $(this).find(".text").toggleClass("hidden", isCompressed);
+<<<<<<< HEAD
+=======
+                // Hide images when column is compressed
+                if (isCompressed) {
+                    $(this).find(".images img").hide();
+                } else {
+                    // Show only the first image when the column is expanded
+                    $(this).find(".images img").hide().first().show();
+                }
+>>>>>>> parent of 1bef131 (fixed compressed glitches)
             });
         }
 // Toggle the visibility of images based on the column's state
@@ -69,8 +84,8 @@ $(".column").each(function() {
         });
     }
 
-    // Hide all images initially
-    $(".images img").hide();
+    // Hide all images in each column except for the first one, and mark it as active
+    $(".column .images img").hide().first().addClass("active").show();
 
     // Call the cycleImages function every 1 second
     setInterval(cycleImages, 1000);
