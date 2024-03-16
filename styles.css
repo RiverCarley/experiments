@@ -1,6 +1,6 @@
 /* Your CSS styles here */
 html, body {
-    height: 90%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -21,13 +21,18 @@ html, body {
     flex-direction: column; /* Arrange items in a column */
 }
 
-
 .expanded {
     flex: 30; /* Expanded column takes more space */
 }
 
 .compressed {
     flex: 0.01; /* Compressed column takes less space */
+}
+
+/* Set the height of images to 0 when the column is compressed */
+.column.compressed .images {
+    height: 0;
+    overflow: hidden;
 }
 
 h1, h2 {
