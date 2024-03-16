@@ -10,7 +10,7 @@ $(document).ready(function(){
         var isExpanded = clickedColumn.hasClass("expanded");
         if (isExpanded) {
             // Remove expanded class from the clicked column
-            clickedColumn.removeClass("expanded");
+          //  clickedColumn.removeClass("expanded");
             // Restore all columns to their initial state
             $(".column").removeClass("expanded").addClass("compressed");
             $(".column-title").removeClass("vertical");
@@ -27,16 +27,17 @@ $(document).ready(function(){
                 $(this).find(".text").toggleClass("hidden", isCompressed);
             });
         }
-        // Toggle the visibility of images based on the column's state
-        $(".column").each(function() {
-            var isCompressed = $(this).hasClass("compressed");
-            if (isCompressed) {
-                $(this).find(".images img").hide();
-            } else {
-                $(this).find(".images img").show();
-            }
-        });
+// Toggle the visibility of images based on the column's state
+$(".column").each(function() {
+    var isCompressed = $(this).hasClass("compressed");
+    if (isCompressed) {
+        $(this).find(".images img").hide();
+        console.log("Images are not visible when the column is compressed."); // Debug message
+    } else {
+        $(this).find(".images img").show();
+   
     }
+});    }
 
     // Click event handler for columns
     $(".column").on("click touchstart", function(){

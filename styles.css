@@ -116,14 +116,7 @@ h1, h2 {
 }
 /* Set the height of images to 0 and hide them when the column is compressed */
 /* Set the height of images to 0 and hide them only when the column is compressed */
-.column.compressed .images img {
-    height: 0;
-    visibility: hidden;
-}
-.column:not(.compressed) .images img {
-    height: auto;
-    visibility: visible;
-}
+
 
 
 /* Hide images by default */
