@@ -14,8 +14,8 @@ $(document).ready(function(){
             // Restore all columns to their initial state
             $(".column").removeClass("expanded compressed");
             $(".column-title").removeClass("vertical");
-            // Show all images
-            $(".images img").show();
+            // Hide all images except the first one in each column
+            $(".column .images img").not(":first-child").hide();
         } else {
             // Toggle the expanded/compressed class on the clicked column
             clickedColumn.toggleClass("expanded").removeClass("compressed");
@@ -27,9 +27,14 @@ $(document).ready(function(){
                 $(this).find(".column-title").toggleClass("vertical", isCompressed);
                 // Toggle the hidden class on the text based on the column's state
                 $(this).find(".text").toggleClass("hidden", isCompressed);
+                // Hide images when column is compressed
+                if (isCompressed) {
+                    $(this).find(".images img").hide();
+                } else {
+                    // Show only the first image when the column is expanded
+                    $(this).find(".images img").hide().first().show();
+                }
             });
-            // Hide images when column is compressed
-            $(".column.compressed .images img").hide();
         }
     }
 
@@ -41,4 +46,24 @@ $(document).ready(function(){
     // Ensure that no column is initially expanded or compressed
     $(".column").removeClass("expanded compressed");
     $(".column-title").removeClass("vertical");
+
+    // Function to cycle images
+    function cycleImages() {
+        $(".column").each(function() {
+            var activeImage = $(this).find(".images img.active");
+            var nextImage = activeImage.next("img");
+            if (nextImage.length === 0) {
+                nextImage = $(this).find(".images img").first();
+            }
+            activeImage.removeClass("active").hide();
+            nextImage.addClass("active").show();
+            nextImage.appendTo($(this).find(".images"));
+        });
+    }
+
+    // Hide all images in each column except for the first one, and mark it as active
+    $(".column .images img").hide().first().addClass("active").show();
+
+    // Call the cycleImages function every 1 second
+    setInterval(cycleImages, 1000);
 });

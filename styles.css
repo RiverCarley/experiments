@@ -1,5 +1,12 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     display: flex;
+    height: 100%; /* Extend container to full height of the page */
 }
 
 .column {
@@ -12,6 +19,7 @@
     display: flex; /* Use flexbox for column layout */
     flex-direction: column; /* Arrange items in a column */
 }
+
 
 .expanded {
     flex: 30; /* Expanded column takes more space */
@@ -33,7 +41,7 @@ h1, h2 {
     font-size: 3vw;
     transition: transform 0.5s ease;
     display: flex;
-    align-items: center; /* Center vertically */
+    align-items: flex-start; /* Align title to the start of its container vertically */
     justify-content: center; /* Center horizontally */
     margin-bottom: 1px; /* Add some bottom margin */
 }
@@ -57,14 +65,25 @@ h1, h2 {
     flex: 1; /* Make the image span the whole compressed column */
     display: flex; /* Use flexbox for image layout */
     flex-direction: column; /* Arrange images in a column */
-    margin-right: 10px; /* Add spacing between image and text */
+    align-items: center; /* Center images vertically */
+    position: relative; /* Position images relative to the container */
 }
 
 .images img {
-    width: 100%; /* Make the image span the whole width of its container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 140px; /* Adjust this value according to the height of your title */
+}
+/* Adjust the position of images in the second column */
+.column:nth-child(2) .images img {
+    top:1px; /* Adjust this value as needed */
 }
 
+/* Adjust the position of images in other columns */
+.column .images img {
+    top: 135px; /* Adjust this value as needed */
+}
 .text {
     flex: 1; /* Fill remaining space */
     display: none; /* Hide the text by default */
@@ -88,3 +107,4 @@ h1, h2 {
     cursor: pointer;
     font-size: 20px;
 }
+
