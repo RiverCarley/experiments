@@ -14,7 +14,7 @@ $(document).ready(function(){
             // Restore all columns to their initial state
             $(".column").removeClass("expanded").addClass("compressed");
             $(".column-title").removeClass("vertical");
-            $(".images").css("height", 0);
+           // $(".images").css("height", 0);
         } else {
             // Toggle the expanded/compressed class on the clicked column
             clickedColumn.toggleClass("expanded").removeClass("compressed");
@@ -27,15 +27,16 @@ $(document).ready(function(){
                 // Toggle the hidden class on the text based on the column's state
                 $(this).find(".text").toggleClass("hidden", isCompressed);
                 // Set the height of images to 0 and hide them when the column is compressed
-                if (isCompressed) {
-                    $(this).find(".images").css("height", 0);
-                    $(this).find(".images img").hide();
-                } else {
-                    // Set the height of images to auto and show them when the column is expanded
-                    $(this).find(".images").css("height", "auto");
-                    $(this).find(".images img:first-child").show(); // Show the first image
-                }
+                     
             });
+         
+       if(isCompressed){
+        clickedColumn.removeClass("compressed");
+       }
+              
+                    // Set the height of images to auto and show them when the column is expanded
+           
+           
         }
     }
 
