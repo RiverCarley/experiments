@@ -67,3 +67,4 @@ $(document).ready(function(){
     // Call the cycleImages function every 1 second
     setInterval(cycleImages, 1000);
 });
+//
